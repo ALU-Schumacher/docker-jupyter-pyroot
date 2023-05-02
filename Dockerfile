@@ -26,7 +26,7 @@ RUN dnf -y install 'dnf-command(config-manager)'  \
     # Additional packages for some C++ work:
     && dnf -y install make boost-devel gsl-devel binutils-devel    \
     # Other Linux packages required for python package compilation.
-    && dnf yum -y install python3-pillow-devel openssl-devel       \
+    && dnf -y install python3-pillow-devel openssl-devel       \
     # Install packages from PyPI. These are the ones needed for almost any
     # Jupyter installation.
     && pip3 install --upgrade wheel jupyter numpy scipy matplotlib \
@@ -34,7 +34,7 @@ RUN dnf -y install 'dnf-command(config-manager)'  \
     && pip3 install --upgrade jupyterlab iminuit pandas sympy terminado urllib3 tables rootpy rootkernel uproot \
     # Clean up
     && dnf clean all \
-    && rm -rf /var/cache/yum
+    && rm -rf /var/cache/*
 
 # Run jupyter when this docker container is started.
 CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8080", "--allow-root"]
