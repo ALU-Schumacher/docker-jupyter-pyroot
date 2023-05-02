@@ -20,7 +20,7 @@ RUN dnf -y install 'dnf-command(config-manager)'  \
     && dnf -y update                              \
     # Install packages needed for ROOT
     && dnf -y install python3 python3-pip root which python3-root python3-devel \
-    && dnf -y install root-tmva root-tmva-python root-minuit2 python3-jupyroot  \
+    && dnf -y install root-tmva root-tmva-python root-minuit2 python3-jupyroot root-graf-gpadv7 \
     # curl will be needed when we install python packages below.
     && dnf -y install curl libcurl libcurl-devel --allowerasing    \
     # Additional packages for some C++ work:
